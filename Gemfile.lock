@@ -1,17 +1,62 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
+    base64 (0.2.0)
+    capybara (3.40.0)
+      addressable
+      matrix
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.11)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (>= 1.5, < 3.0)
+      xpath (~> 3.2)
     diff-lcs (1.5.1)
+    ffi (1.17.0-arm64-darwin)
     json (2.7.2)
     language_server-protocol (3.17.0.3)
+    listen (3.9.0)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
+    logger (1.6.1)
+    matrix (0.4.2)
+    mini_mime (1.1.5)
+    mini_portile2 (2.8.7)
+    mustermann (3.0.3)
+      ruby2_keywords (~> 0.0.1)
+    nokogiri (1.16.7)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
+    nokogiri (1.16.7-arm64-darwin)
+      racc (~> 1.4)
     parallel (1.26.3)
     parser (3.3.5.0)
       ast (~> 2.4.1)
       racc
+    public_suffix (6.0.1)
     racc (1.8.1)
+    rack (3.1.7)
+    rack-protection (4.0.0)
+      base64 (>= 0.1.0)
+      rack (>= 3.0.0, < 4)
+    rack-session (2.0.0)
+      rack (>= 3.0.0)
+    rack-test (2.1.0)
+      rack (>= 1.3)
+    rackup (2.1.0)
+      rack (>= 3)
+      webrick (~> 1.8)
     rainbow (3.1.1)
+    rb-fsevent (0.11.2)
+    rb-inotify (0.11.1)
+      ffi (~> 1.0)
     regexp_parser (2.9.2)
+    rerun (0.14.0)
+      listen (~> 3.0)
+    rexml (3.3.7)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -42,17 +87,49 @@ GEM
     rubocop-rspec (3.0.5)
       rubocop (~> 1.61)
     ruby-progressbar (1.13.0)
+    ruby2_keywords (0.0.5)
+    rubyzip (2.3.2)
+    selenium-webdriver (4.24.0)
+      base64 (~> 0.2)
+      logger (~> 1.4)
+      rexml (~> 3.2, >= 3.2.5)
+      rubyzip (>= 1.2.2, < 3.0)
+      websocket (~> 1.0)
+    sinatra (4.0.0)
+      mustermann (~> 3.0)
+      rack (>= 3.0.0, < 4)
+      rack-protection (= 4.0.0)
+      rack-session (>= 2.0.0, < 3)
+      tilt (~> 2.0)
+    tilt (2.4.0)
     unicode-display_width (2.6.0)
+    webdrivers (4.7.0)
+      nokogiri (~> 1.6)
+      rubyzip (>= 1.3.0)
+      selenium-webdriver (> 3.141, < 5.0)
+    webrick (1.8.1)
+    websocket (1.2.11)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   arm64-darwin-23
   ruby
 
 DEPENDENCIES
+  capybara
+  rack
+  rackup
+  rerun
   rspec
   rspec-example_steps
   rubocop
   rubocop-rspec
+  sinatra
+  webdrivers
+
+RUBY VERSION
+   ruby 3.3.5p100
 
 BUNDLED WITH
    2.5.16

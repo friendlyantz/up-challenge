@@ -1,6 +1,21 @@
 # frozen_string_literal: true
 
+require 'capybara'
+require 'capybara/rspec'
+require 'rack/test'
+require 'rspec/example_steps'
+require 'app'
+
+ENV['RACK_ENV'] = 'test'
+Capybara.server = :webrick
+Capybara.app = Sinatra::Application
+
 RSpec.configure do |config|
+  include Rack::Test::Methods
+  def app
+    Sinatra::Application
+  end
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end

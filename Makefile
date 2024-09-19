@@ -16,9 +16,25 @@ APP_REVISION    = $(shell git rev-parse HEAD)
 install:
 	bundle install
 
+.PHONY: run
+run:
+	bundle exec ruby lib/app.rb 
+
+.PHONY: run-dev
+run-dev:
+	bundle exec rerun 'ruby lib/app.rb'
+
+.PHONY: open
+open:
+	open http://127.0.0.1:4567/
+
 .PHONY: lint
 lint:
 	bundle exec rubocop -a
+
+.PHONY: lint-force
+lint-force:
+	bundle exec rubocop -A
 
 .PHONY: test
 test:
@@ -32,7 +48,11 @@ usage:
 	@echo "Getting started"
 	@echo
 	@echo "${YELLOW}make install${NC}                  install dependencies"
+	@echo "${YELLOW}make run${NC}                      run server"
+	@echo "${YELLOW}make run-dev${NC}                  run server with source reload(devmode)"
+	@echo "${YELLOW}make open${NC}                     open app"
 	@echo "${YELLOW}make lint${NC}                     lint app"
+	@echo "${YELLOW}make lint-force${NC}               lint app (UNSAFE)"
 	@echo "${YELLOW}make test${NC}                     test app"
 	@echo
 

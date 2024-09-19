@@ -19,6 +19,7 @@
 - Choose 'boring' technologies with minimal dependencies
   - minimal Ruby setup without extra libraries
   - Rspect for testing
+  - Rspec + Capybara for integration testing
   - money calculations: Money gem
   - Rack or Sinatra with WebRick or Puma for web server, instead of Rails / Hanami. I would prefer puma over webrick, but webrick is good enough and comes with Ruby by default
 - Object Orineted design:

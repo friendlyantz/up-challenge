@@ -6,6 +6,22 @@ Style/Documentation:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/VerifiedDoubleReference:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+
 AllCops:
   NewCops: enable
   Exclude:
