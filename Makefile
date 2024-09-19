@@ -26,7 +26,7 @@ run-dev:
 
 .PHONY: open
 open:
-	open http://127.0.0.1:4567/
+	open http://localhost:4567/
 
 .PHONY: lint
 lint:
@@ -48,11 +48,13 @@ usage:
 	@echo "Getting started"
 	@echo
 	@echo "${YELLOW}make install${NC}                  install dependencies"
+	@echo "${YELLOW}make test${NC}                     test app"
+	@echo
 	@echo "${YELLOW}make run${NC}                      run server"
-	@echo "${YELLOW}make run-dev${NC}                  run server with source reload(devmode)"
 	@echo "${YELLOW}make open${NC}                     open app"
+	@echo
 	@echo "${YELLOW}make lint${NC}                     lint app"
 	@echo "${YELLOW}make lint-force${NC}               lint app (UNSAFE)"
-	@echo "${YELLOW}make test${NC}                     test app"
+	@echo "${YELLOW}make run-dev${NC}                  run server with source reload(devmode)"
 	@echo
 

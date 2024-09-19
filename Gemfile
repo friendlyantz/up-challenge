@@ -13,6 +13,7 @@ gem "sinatra"
 
 group :test, :development do
   gem "rerun"
+  gem "super_diff"
 end
 
 group :test do
@@ -21,5 +22,6 @@ group :test do
   gem "rspec-example_steps"
   gem "rubocop"
   gem "rubocop-rspec"
+  gem "simplecov"
   gem "webdrivers", require: false
 end

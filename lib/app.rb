@@ -28,7 +28,7 @@ get "/", provides: "html" do
        TermDeposit
      </button>
 
-    <form  hx-post="/calculate" hx-target="#table" hx-swap="innerHTML>
+    <form  hx-post="/calculate" hx-target="#result" hx-swap="innerHTML>
 
        <label for="principal">Starting with (Principal):</label>
        <input type="text" id="principal" name="principal"
@@ -55,7 +55,7 @@ get "/", provides: "html" do
        <input type="submit" value="Re-Calculate">
     </form>
 
-        <div id="table">
+        <div id="result">
         <p style="color: red;"> Please fill the form above </p>
         </div>
 
@@ -77,6 +77,31 @@ post "/calculate" do
       <h1>Total interest earned:</h1>
         #{request[:result].final_interest_earned.round.format}
       </div>
+
+
+      <h1>Monthly Interests:</h1>
+      <table id="table" border="2" style="text-align: right;" >
+        <tr>
+          <th>Period</th>
+          <th>Extra deposits</th>
+          <th>Interest Rate</th>
+          <th>Interest Earned</th>
+          <th>Balance</th>
+        </tr>
+        #{
+         request[:result].monthly_interests.map do |e|
+           <<~CONTENT
+             <tr>
+                <td>#{e.name}</td>
+                <td>#{e.top_up.round.format}</td>
+                <td>#{format('%.2f%%', e.rate * 100)}</td>
+                <td>#{e.interest_earned.round.format}</td>
+                <td>#{e.balance.round.format}</td>
+             </tr>
+           CONTENT
+         end.join
+       }
+      </table>
     RESULT
   else
     <<~ERRORS

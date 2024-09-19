@@ -47,6 +47,26 @@ RSpec.describe "Cash and Term DepositCalculator", :js, type: :feature do
       expect(page.find("#total-interest")).to have_content("$1,268.25")
     end
 
+    And "I can also see the monthly interest breakdown" do
+      expect(page.find("#table").text).to eq(
+        <<~TABLE.chomp
+          Period Extra deposits Interest Rate Interest Earned Balance
+          Month 1 $0.00 12.00% $100.00 $10,100.00
+          Month 2 $0.00 12.00% $201.00 $10,201.00
+          Month 3 $0.00 12.00% $303.01 $10,303.01
+          Month 4 $0.00 12.00% $406.04 $10,406.04
+          Month 5 $0.00 12.00% $510.10 $10,510.10
+          Month 6 $0.00 12.00% $615.20 $10,615.20
+          Month 7 $0.00 12.00% $721.35 $10,721.35
+          Month 8 $0.00 12.00% $828.57 $10,828.57
+          Month 9 $0.00 12.00% $936.85 $10,936.85
+          Month 10 $0.00 12.00% $1,046.22 $11,046.22
+          Month 11 $0.00 12.00% $1,156.68 $11,156.68
+          Month 12 $0.00 12.00% $1,268.25 $11,268.25
+        TABLE
+      )
+    end
+
     When "I select Cash" do
       click_button "Cash"
     end

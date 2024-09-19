@@ -4,11 +4,16 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rack/test'
 require 'rspec/example_steps'
+require 'super_diff/rspec'
+require 'simplecov'
+
 require 'app'
 
 ENV['RACK_ENV'] = 'test'
 Capybara.server = :webrick
 Capybara.app = Sinatra::Application
+
+SimpleCov.start
 
 RSpec.configure do |config|
   include Rack::Test::Methods
