@@ -60,8 +60,6 @@ RSpec.describe "Cash and Term DepositCalculator", :js, type: :feature do
     end
 
     Then "I should see the final balance and total interest earned" do
-      pending
-
       expect(page.find("#final-balance")).to have_content("$16,791.52")
       expect(page.find("#total-interest")).to have_content("$1,591.52")
     end
