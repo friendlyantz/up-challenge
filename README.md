@@ -29,3 +29,5 @@
 # Assumptions
 
 - this is marketing / estimation tool, so no requirement for account ledger or transaction history
+
+![image](https://github.com/user-attachments/assets/a1410455-49f3-4c14-8d31-5d99f0bcac9f)
