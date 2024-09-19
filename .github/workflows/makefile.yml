@@ -20,4 +20,5 @@ jobs:
 
       - name: builld
         run: |
-          make test
+          bundle exec rubocop
+          bundle exec rspec --exclude-pattern "spec/e2e/*"

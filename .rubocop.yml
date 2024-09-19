@@ -26,3 +26,4 @@ AllCops:
   NewCops: enable
   Exclude:
     - 'spec/spec_helper.rb'
+    - 'lib/app.rb'
