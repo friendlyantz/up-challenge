@@ -63,7 +63,22 @@ get "/", provides: "html" do
 end
 
 post "/calculate" do
-  "Calculating..."
+  request = InputHandler.new(request_args: params).handle
+  if request[:success]
+    "Calculating..."
+  else
+    <<~ERRORS
+      <ul style="color: red;">
+         #{
+            request[:errors].map do |error|
+              <<~CONTENT
+                <li>#{error}</li>
+              CONTENT
+            end.join
+          }
+      </ul>
+    ERRORS
+  end
 end
 
 def compounting_freq_picker(period_name)

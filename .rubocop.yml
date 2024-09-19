@@ -1,5 +1,8 @@
 require: rubocop-rspec
 
+Style/HashSyntax:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
