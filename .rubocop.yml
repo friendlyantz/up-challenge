@@ -1,5 +1,8 @@
 require: rubocop-rspec
 
+Metrics/MethodLength:
+  Max: 25
+
 Style/HashSyntax:
   Enabled: false
 
@@ -23,6 +26,7 @@ RSpec/MultipleExpectations:
 
 RSpec/NamedSubject:
   Enabled: false
+
 
 
 AllCops:

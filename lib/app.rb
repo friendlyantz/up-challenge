@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+$LOAD_PATH.unshift(File.join(__dir__))
 require "sinatra"
+require 'handlers/input_handler'
 
 set :port, 4567
 

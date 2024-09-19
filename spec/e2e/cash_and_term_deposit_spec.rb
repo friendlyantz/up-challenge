@@ -30,8 +30,23 @@ RSpec.describe "Cash and Term DepositCalculator", :js, type: :feature do
     end
 
     Then "I should see errors prompting to fill the form" do
+      expect(page).to have_content("Principal is not a number")
+      expect(page).to have_content("Term must be greater than 0")
+      expect(page).to have_content("Interest rate must be less than 1")
+    end
+
+    When "I fill the form with valid params" do
+      fill_in "principal", with: 10_000.00
+      fill_in "interest_rate", with: 0.12
+      fill_in "term", with: 1.0
+      choose "Monthly"
+    end
+
+    Then "I should see the final balance and total interest earned" do
       pending
-      expect(page).to have_content("Some Validation error")
+
+      expect(page.find("#final-balance")).to have_content("$11,268.25")
+      expect(page.find("#total-interest")).to have_content("$1,268.25")
     end
   end
 end
