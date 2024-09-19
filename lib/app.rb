@@ -67,7 +67,17 @@ end
 post "/calculate" do
   request = InputHandler.new(request_args: params).handle
   if request[:success]
-    "Calculating..."
+    <<~RESULT
+       <div id="final-balance">
+        <h1>Final balance:</h1>
+        #{request[:result].final_balance.round.format}
+      </div>
+
+      <div id="total-interest">
+      <h1>Total interest earned:</h1>
+        #{request[:result].final_interest_earned.round.format}
+      </div>
+    RESULT
   else
     <<~ERRORS
       <ul style="color: red;">

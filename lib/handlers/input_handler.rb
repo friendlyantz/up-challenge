@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "validators/input_validator"
+require "term_deposit"
 class InputHandler
   attr_reader :validator
 
@@ -16,7 +17,11 @@ class InputHandler
         calculator = TermDeposit.new(**validated_args)
         calculator.calculate
       rescue StandardError => e
-        puts "Error: #{e.message} to be piped to some monitoring service"
+        puts <<~ERROR
+          ==========================================================
+          Error: #{e.message} to be piped to some monitoring service
+          ==========================================================
+        ERROR
         return { success: false, errors: ["Uh, oh, something went wrong. Please contact support team"] }
       end
       { success: true, result: calculator }

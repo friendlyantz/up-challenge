@@ -20,4 +20,12 @@ class TermDeposit
   def calculate
     true
   end
+
+  def final_balance
+    principal * ((1 + (rate / freq))**(term * freq))
+  end
+
+  def final_interest_earned
+    final_balance - principal
+  end
 end
